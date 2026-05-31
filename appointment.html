@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment | Gurukripa Dental Clinic</title>
+    <meta name="description" content="Book your dental appointment online at Gurukripa Dental Clinic. Choose your preferred date and time for root canal, implants, whitening, and more." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a2e;
+            overflow-x: hidden;
+            background: #f8faff;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* Top Bar */
+        .topbar {
+            background: #0a1628;
+            color: #b0c4de;
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .topbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .topbar-left {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .topbar-left span i {
+            margin-right: 6px;
+            color: #4fc3f7;
+        }
+        .topbar-right {
+            display: flex;
+            gap: 12px;
+        }
+        .topbar-right a {
+            color: #b0c4de;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .topbar-right a:hover {
+            color: #4fc3f7;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #1e88e5, #0d47a1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 22px;
+        }
+        .logo-text {
+            font-weight: 700;
+            font-size: 20px;
+            color: #0a1628;
+        }
+        .logo-text span {
+            color: #1e88e5;
+        }
+        .logo-sub {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: #6b7a8f;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -2px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a2e;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1e88e5;
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1e88e5;
+        }
+        .nav-btn {
+            background: linear-gradient(135deg, #1e88e5, #0d47a1);
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .nav-btn::after {
+            display: none !important;
+        }
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30,136,229,0.35);
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #1a1a2e;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #0a1628 0%, #132244 50%, #0d2137 100%);
+            padding: 80px 20px 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(30,136,229,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(79,195,247,0.06) 0%, transparent 50%);
+            animation: headerGlow 8s ease-in-out infinite alternate;
+        }
+        @keyframes headerGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(2%, 2%); }
+        }
+        .page-header h1 {
+            font-size: 44px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            position: relative;
+            letter-spacing: -0.5px;
+        }
+        .page-header h1 i {
+            color: #4fc3f7;
+            margin-right: 12px;
+        }
+        .breadcrumb {
+            color: #8ba4c4;
+            font-size: 14px;
+            position: relative;
+        }
+        .breadcrumb a {
+            color: #4fc3f7;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #fff;
+        }
+        .breadcrumb span {
+            color: #8ba4c4;
+            margin: 0 8px;
+        }
+
+        /* Section */
+        section {
+            padding: 70px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Two Column Layout */
+        .appointment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Form */
+        .form-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 44px 40px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            border: 1px solid #e8edf5;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease-out;
+        }
+        .form-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .form-card h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 6px;
+        }
+        .form-card h2 i {
+            color: #1e88e5;
+        }
+        .form-card > p {
+            color: #6b7a8f;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+        .form-row {
+            margin-bottom: 20px;
+        }
+        .form-row label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+        .form-row label .required {
+            color: #e53935;
+        }
+        .form-row input,
+        .form-row select,
+        .form-row textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #dce1eb;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #1a1a2e;
+            background: #fafcff;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+        .form-row input:focus,
+        .form-row select:focus,
+        .form-row textarea:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 0 0 3px rgba(30,136,229,0.12);
+        }
+        .form-row textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-row input::placeholder,
+        .form-row textarea::placeholder {
+            color: #9aabc0;
+        }
+        .form-row select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7a8f' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+        .form-row-two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #1e88e5, #0d47a1);
+            color: #fff;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30,136,229,0.4);
+        }
+        .form-note {
+            text-align: center;
+            font-size: 12px;
+            color: #8ba4c4;
+            margin-top: 14px;
+        }
+        .form-note i {
+            color: #25D366;
+        }
+
+        /* Info Panel */
+        .info-panel {
+            background: linear-gradient(135deg, #0a1628 0%, #0d2137 50%, #132244 100%);
+            border-radius: 16px;
+            padding: 44px 36px;
+            color: #fff;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.6s ease-out 0.15s;
+        }
+        .info-panel.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .info-panel h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .info-panel h3 i {
+            color: #4fc3f7;
+            margin-right: 10px;
+        }
+        .info-panel > p {
+            font-size: 14px;
+            color: #8ba4c4;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+        .info-block {
+            margin-bottom: 26px;
+        }
+        .info-block:last-child {
+            margin-bottom: 0;
+        }
+        .info-block h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #4fc3f7;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-block h4 i {
+            width: 20px;
+            text-align: center;
+        }
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+        }
+        .info-block ul li {
+            font-size: 14px;
+            color: #b0c4de;
+            padding: 5px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .info-block ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 11px;
+            color: #4fc3f7;
+            position: absolute;
+            left: 0;
+            top: 6px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+        .contact-item .ci-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(79,195,247,0.12);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4fc3f7;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+        .contact-item .ci-text {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .contact-item .ci-text strong {
+            display: block;
+            font-size: 12px;
+            color: #8ba4c4;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+            padding-left: 30px;
+        }
+        .hours-grid span {
+            font-size: 14px;
+            color: #b0c4de;
+        }
+        .hours-grid .day {
+            font-weight: 500;
+        }
+        .hours-grid .time {
+            text-align: right;
+        }
+        .emergency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239,83,80,0.15);
+            color: #ef5350;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+        .emergency-badge i {
+            font-size: 18px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a1628;
+            color: #b0c4de;
+            padding: 60px 20px 0;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+        .footer-about h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .footer-about h3 span {
+            color: #1e88e5;
+        }
+        .footer-about p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 12px 0 16px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b0c4de;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .footer-social a:hover {
+            background: #1e88e5;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .footer h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        .footer ul li a {
+            color: #b0c4de;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer ul li a:hover {
+            color: #4fc3f7;
+        }
+        .footer ul li i {
+            width: 20px;
+            color: #4fc3f7;
+            margin-right: 6px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .appointment-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-card, .info-panel {
+                transform: translateY(20px);
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #fff;
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                gap: 20px;
+                box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+                transition: right 0.4s ease;
+                z-index: 2000;
+                align-items: flex-start;
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a::after {
+                display: none;
+            }
+            .page-header h1 {
+                font-size: 30px;
+            }
+            .page-header {
+                padding: 60px 20px 50px;
+            }
+            section {
+                padding: 50px 16px;
+            }
+            .form-card {
+                padding: 28px 20px;
+            }
+            .form-card h2 {
+                font-size: 22px;
+            }
+            .form-row-two {
+                grid-template-columns: 1fr;
+            }
+            .info-panel {
+                padding: 28px 22px;
+            }
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+            .hours-grid .time {
+                text-align: left;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .topbar-left {
+                font-size: 12px;
+                gap: 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .topbar .container {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-left">
+                <span><i class="fas fa-phone-alt"></i> +91 74705 67833</span>
+                <span><i class="fas fa-envelope"></i> care@gurukripadental.com</span>
+                <span><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan</span>
+            </div>
+            <div class="topbar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-tooth"></i></div>
+                <div>
+                    <div class="logo-text">Gurukripa <span>Dental</span></div>
+                    <span class="logo-sub">Clinic &amp; Implant Centre</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="appointment.html" class="nav-btn active"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1><i class="fas fa-calendar-check"></i> Book Appointment</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>&rsaquo;</span>
+            <span>Appointment</span>
+        </div>
+    </div>
+
+    <!-- Appointment Section -->
+    <section>
+        <div class="container">
+            <div class="appointment-grid">
+
+                <!-- Left: Form -->
+                <div class="form-card scroll-hidden" id="formCard">
+                    <h2><i class="fas fa-edit"></i> Schedule Your Visit</h2>
+                    <p>Fill in the details below and we'll confirm your appointment via WhatsApp.</p>
+                    <form id="appointmentForm">
+                        <div class="form-row">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" name="name" id="fullName" placeholder="Enter your full name" required />
+                        </div>
+                        <div class="form-row-two">
+                            <div class="form-row">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <input type="tel" name="phone" id="phone" placeholder="+91 98765 43210" required />
+                            </div>
+                            <div class="form-row">
+                                <label>Email</label>
+                                <input type="email" name="email" id="email" placeholder="your@email.com" />
+                            </div>
+                        </div>
+                        <div class="form-row-two">
+                            <div class="form-row">
+                                <label>Preferred Date <span class="required">*</span></label>
+                                <input type="date" name="date" id="date" required />
+                            </div>
+                            <div class="form-row">
+                                <label>Preferred Time <span class="required">*</span></label>
+                                <select name="time" id="time" required>
+                                    <option value="">Select time slot</option>
+                                    <option value="Morning (10:00 AM - 2:00 PM)">Morning (10:00 AM - 2:00 PM)</option>
+                                    <option value="Evening (5:00 PM - 9:00 PM)">Evening (5:00 PM - 9:00 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label>Treatment Needed <span class="required">*</span></label>
+                            <select name="treatment" id="treatment" required>
+                                <option value="">Select treatment</option>
+                                <option value="Root Canal">Root Canal</option>
+                                <option value="Dental Implants">Dental Implants</option>
+                                <option value="Teeth Whitening">Teeth Whitening</option>
+                                <option value="Braces / Aligners">Braces / Aligners</option>
+                                <option value="Cleaning &amp; Scaling">Cleaning &amp; Scaling</option>
+                                <option value="Extraction">Extraction</option>
+                                <option value="Pediatric Dentistry">Pediatric Dentistry</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label>Message</label>
+                            <textarea name="message" id="message" placeholder="Any specific concerns or requests..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fab fa-whatsapp"></i> Book Appointment
+                        </button>
+                        <p class="form-note"><i class="fas fa-lock"></i> Your details are secure &middot; <i class="fab fa-whatsapp"></i> You'll receive a confirmation on WhatsApp</p>
+                    </form>
+                </div>
+
+                <!-- Right: Info Panel -->
+                <div class="info-panel scroll-hidden" id="infoPanel">
+                    <h3><i class="fas fa-info-circle"></i> Visit Information</h3>
+                    <p>Everything you need to know before your visit to Gurukripa Dental Clinic.</p>
+
+                    <div class="info-block">
+                        <h4><i class="fas fa-phone-alt"></i> Contact</h4>
+                        <div class="contact-item">
+                            <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="ci-text">
+                                <strong>Phone</strong>
+                                +91 74705 67833
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="ci-text">
+                                <strong>Email</strong>
+                                care@gurukripadental.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="ci-text">
+                                <strong>Address</strong>
+                                Jaipur, Rajasthan - 302001
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-block">
+                        <h4><i class="fas fa-clock"></i> Business Hours</h4>
+                        <div class="hours-grid">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">10:00 AM - 9:00 PM</span>
+                            <span class="day">Saturday</span>
+                            <span class="time">10:00 AM - 9:00 PM</span>
+                            <span class="day">Sunday</span>
+                            <span class="time" style="color:#ef5350;">Closed</span>
+                        </div>
+                    </div>
+
+                    <div class="info-block">
+                        <h4><i class="fas fa-check-circle"></i> What to Expect</h4>
+                        <ul>
+                            <li>Warm welcome and minimal wait time</li>
+                            <li>Thorough consultation and examination</li>
+                            <li>Digital X-rays if required (low radiation)</li>
+                            <li>Detailed treatment plan with cost estimate</li>
+                            <li>Pain-free procedures with modern anaesthesia</li>
+                            <li>Post-treatment care instructions</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Emergency</h4>
+                        <div class="emergency-badge">
+                            <i class="fas fa-phone-alt"></i> +91 74705 67833
+                        </div>
+                        <p style="font-size:13px;color:#8ba4c4;margin-top:10px;padding-left:0;line-height:1.6;">
+                            For dental emergencies, call us anytime. We prioritise emergency cases.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-about">
+                <h3>Gurukripa <span>Dental</span></h3>
+                <p>We provide comprehensive dental care with state-of-the-art technology. Your smile is our priority, and we strive to deliver pain-free, affordable dental treatments in a comfortable environment.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Treatments</h4>
+                <ul>
+                    <li><a href="#">Dental Implants</a></li>
+                    <li><a href="#">Root Canal</a></li>
+                    <li><a href="#">Braces &amp; Aligners</a></li>
+                    <li><a href="#">Teeth Whitening</a></li>
+                    <li><a href="#">General Dentistry</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan</li>
+                    <li><i class="fas fa-phone-alt"></i> +91 74705 67833</li>
+                    <li><i class="fas fa-envelope"></i> care@gurukripadental.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sat: 10AM - 9PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 <a href="https://rayservices.netlify.app/" target="_blank" rel="noopener">Ray Services 7746969000</a>. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // Set min date to today
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+        // WhatsApp Form Handler
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const treatment = document.getElementById('treatment').value;
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !phone || !date || !time || !treatment) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const text = [
+                '*New Appointment Request*',
+                '',
+                '*Name:* ' + name,
+                '*Phone:* ' + phone,
+                email ? '*Email:* ' + email : '',
+                '*Date:* ' + date,
+                '*Time:* ' + time,
+                '*Treatment:* ' + treatment,
+                message ? '*Message:* ' + message : ''
+            ].filter(Boolean).join('%0A');
+
+            window.open('https://wa.me/917470567833?text=' + text, '_blank');
+        });
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.classList.remove('scroll-hidden');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-hidden').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

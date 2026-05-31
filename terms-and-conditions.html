@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms &amp; Conditions - Gurukripa Dental Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: #1a1a2e; line-height: 1.7; background: #f8f9fc; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    .navbar {
+      background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      position: sticky; top: 0; z-index: 1000; padding: 0 20px;
+    }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.25rem; color: #0b3b5c; }
+    .logo i { color: #2a9d8f; font-size: 1.6rem; }
+    .logo span { color: #2a9d8f; font-weight: 800; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: #333; transition: color 0.3s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #2a9d8f; transition: width 0.3s; }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover, .nav-links a.active { color: #2a9d8f; }
+    .nav-cta { background: linear-gradient(135deg, #2a9d8f, #21867a); color: #fff !important; padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; transition: transform 0.3s, box-shadow 0.3s; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(42,157,143,0.35); }
+    .nav-cta::after { display: none !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 26px; height: 3px; background: #333; border-radius: 3px; transition: 0.3s; }
+
+    .page-header {
+      background: linear-gradient(135deg, #0b3b5c 0%, #1a6e5c 100%);
+      color: #fff; text-align: center; padding: 60px 20px 50px;
+    }
+    .page-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+    .page-header .breadcrumb { font-size: 0.9rem; opacity: 0.85; }
+    .page-header .breadcrumb span { color: #8ecae6; }
+
+    .legal-content {
+      max-width: 860px; margin: 0 auto;
+      background: #fff; border-radius: 20px; padding: 56px 48px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05); border: 1px solid #eef2f7;
+    }
+    .legal-content h2 {
+      font-size: 1.4rem; font-weight: 700; color: #0b3b5c;
+      margin-top: 40px; margin-bottom: 14px;
+    }
+    .legal-content h2:first-of-type { margin-top: 0; }
+    .legal-content h3 {
+      font-size: 1.1rem; font-weight: 600; color: #1a6e5c;
+      margin-top: 28px; margin-bottom: 10px;
+    }
+    .legal-content p { font-size: 0.95rem; color: #444; margin-bottom: 14px; }
+    .legal-content ul { margin: 10px 0 20px 24px; }
+    .legal-content ul li { font-size: 0.95rem; color: #444; margin-bottom: 8px; }
+    .legal-content .last-updated {
+      font-size: 0.85rem; color: #999; margin-bottom: 32px;
+      border-bottom: 1px solid #eef2f7; padding-bottom: 16px;
+    }
+    .legal-content strong { color: #1a1a2e; }
+    .legal-content .highlight-box {
+      background: #f0f9f8; border-left: 4px solid #2a9d8f;
+      padding: 16px 20px; border-radius: 8px; margin: 20px 0;
+    }
+    section { padding: 70px 0; }
+
+    .footer {
+      background: #0b1a2a; color: rgba(255,255,255,0.75); padding: 60px 0 0;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; }
+    .footer-brand h3 { color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+    .footer-brand h3 i { color: #2a9d8f; margin-right: 8px; }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.8; }
+    .footer h4 { color: #fff; font-size: 1rem; font-weight: 600; margin-bottom: 16px; }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 10px; }
+    .footer ul li a { font-size: 0.9rem; transition: color 0.3s; }
+    .footer ul li a:hover { color: #2a9d8f; }
+    .footer .social-links { display: flex; gap: 12px; margin-top: 16px; }
+    .footer .social-links a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #fff; transition: background 0.3s, transform 0.3s; }
+    .footer .social-links a:hover { background: #2a9d8f; transform: translateY(-2px); }
+    .footer .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; margin-top: 40px; text-align: center; font-size: 0.85rem; }
+    .footer .footer-bottom a { color: #2a9d8f; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 20px 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); gap: 16px; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .page-header h1 { font-size: 1.8rem; }
+      .legal-content { padding: 28px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo"><i class="fas fa-tooth"></i>Gurukripa <span>Dental</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:7470567833" class="nav-cta"><i class="fas fa-phone-alt"></i> 74705 67833</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <h1>Terms &amp; Conditions</h1>
+    <p class="breadcrumb"><a href="index.html">Home</a> <span>›</span> Terms &amp; Conditions</p>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="legal-content">
+
+        <p class="last-updated">Last updated: May 2026</p>
+
+        <p>Welcome to Gurukripa Dental Clinic. By accessing our website and availing our dental services, you agree to be bound by the following terms and conditions. Please read them carefully. If you do not agree with any part of these terms, kindly refrain from using our website or services.</p>
+
+        <h2>1. Services</h2>
+        <p>Gurukripa Dental Clinic provides a comprehensive range of dental care services, including but not limited to general dentistry, cosmetic dentistry, orthodontics, periodontics, endodontics (root canal treatment), dental implants, teeth whitening, and oral surgery. All services are rendered by qualified and licensed dental professionals in accordance with the standards prescribed by the Dental Council of India.</p>
+        <ul>
+          <li>Treatment plans are customised to each patient's specific dental needs and medical history.</li>
+          <li>We reserve the right to modify, suspend, or discontinue any service at our discretion.</li>
+          <li>Emergency dental services are subject to availability and prior appointment.</li>
+        </ul>
+
+        <h2>2. Appointment and Cancellation</h2>
+        <ul>
+          <li>Appointments can be booked via phone, WhatsApp, email, or our website contact form.</li>
+          <li>We request patients to arrive at least 10 minutes before their scheduled appointment time for registration.</li>
+          <li>A minimum of 24 hours' notice is required for cancellation or rescheduling of appointments.</li>
+          <li>Repeated no-shows or late cancellations without prior notice may result in a cancellation fee at the clinic's discretion.</li>
+          <li>While we make every effort to see patients at the scheduled time, delays may occur due to emergency cases. We appreciate your understanding.</li>
+        </ul>
+
+        <h2>3. Patient Responsibilities</h2>
+        <p>As a patient of Gurukripa Dental Clinic, you agree to:</p>
+        <ul>
+          <li>Provide accurate, complete, and up-to-date medical and dental history information.</li>
+          <li>Inform the treating dentist of any medications, allergies, or medical conditions that may affect treatment.</li>
+          <li>Follow pre-treatment and post-treatment instructions provided by the clinic.</li>
+          <li>Attend follow-up appointments as recommended by the dentist.</li>
+          <li>Communicate any concerns, discomfort, or adverse reactions promptly.</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>Important:</strong> Dental treatment outcomes depend on various factors including the patient's oral hygiene practices, compliance with instructions, and regular follow-up care. Individual results may vary.
+        </div>
+
+        <h2>4. Payment Terms</h2>
+        <ul>
+          <li>Payment is due at the time of service unless prior credit arrangements have been made.</li>
+          <li>We accept cash, UPI, debit cards, and credit cards.</li>
+          <li>A detailed receipt and treatment summary will be provided for all payments.</li>
+          <li>Third-party financing or EMI options, if available, are subject to approval by the respective provider.</li>
+          <li>Insurance claims and reimbursements are the responsibility of the patient. We provide necessary documentation to support your claim.</li>
+        </ul>
+
+        <h2>5. Treatment Consent</h2>
+        <p>Prior to commencing any dental procedure, we will explain the treatment plan, expected outcomes, potential risks, alternatives, and costs. Your informed written consent will be obtained before treatment. You have the right to:</p>
+        <ul>
+          <li>Ask questions and seek second opinions before consenting to treatment.</li>
+          <li>Refuse or discontinue treatment at any stage, subject to the implications explained by the dentist.</li>
+          <li>Request a detailed treatment plan and cost estimate in writing.</li>
+        </ul>
+
+        <h2>6. Website Use and Intellectual Property</h2>
+        <ul>
+          <li>All content on this website, including text, images, graphics, logos, and videos, is the intellectual property of Gurukripa Dental Clinic unless otherwise stated.</li>
+          <li>You may not reproduce, distribute, modify, or republish any content without prior written permission.</li>
+          <li>The website is provided for informational purposes only and does not constitute medical advice. Always consult a qualified dentist for diagnosis and treatment.</li>
+        </ul>
+
+        <h2>7. Limitation of Liability</h2>
+        <p>Gurukripa Dental Clinic shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or services. Our total liability shall not exceed the amount paid by you for the specific service giving rise to the claim. We do not warrant that the website will be uninterrupted or error-free.</p>
+
+        <h2>8. Medical Emergencies</h2>
+        <p>Our website and contact channels are not intended for medical emergencies. In case of a dental emergency, please contact us immediately by phone at <strong>74705 67833</strong> or <strong>70008 75867</strong>. If the emergency is life-threatening, please visit the nearest hospital emergency room.</p>
+
+        <h2>9. Governing Law and Dispute Resolution</h2>
+        <p>These terms and conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising out of or relating to these terms or the services provided shall be subject to the exclusive jurisdiction of the courts in <strong>Raipur, Chhattisgarh</strong>.</p>
+
+        <h2>10. Modifications to Terms</h2>
+        <p>We reserve the right to update or modify these terms and conditions at any time. Changes will be effective immediately upon posting on this page. Your continued use of our website or services after any modifications constitutes acceptance of the updated terms. We encourage you to review this page periodically.</p>
+
+        <h2>11. Contact Information</h2>
+        <p>If you have any questions, concerns, or complaints regarding these terms and conditions, please contact us:</p>
+        <ul>
+          <li><strong>Phone:</strong> 74705 67833 / 70008 75867</li>
+          <li><strong>Email:</strong> info@gurukripadental.com</li>
+          <li><strong>Address:</strong> In Front of HP Petrol Pump, Dhebar City Road, Bhataagaon Naka Chowk, Raipur (C.G.)</li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3><i class="fas fa-tooth"></i>Gurukripa Dental Clinic</h3>
+          <p>Your trusted partner for comprehensive dental care in Raipur. We combine advanced technology with a gentle touch to create smiles that last a lifetime.</p>
+          <div class="social-links">
+            <a href="https://wa.me/917470567833" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Root Canal</a></li>
+            <li><a href="#">Dental Implants</a></li>
+            <li><a href="#">Teeth Whitening</a></li>
+            <li><a href="#">Braces</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Info</h4>
+          <ul>
+            <li><i class="fas fa-phone-alt" style="margin-right:8px;color:#2a9d8f;"></i> 74705 67833</li>
+            <li><i class="fas fa-envelope" style="margin-right:8px;color:#2a9d8f;"></i> info@gurukripadental.com</li>
+            <li><i class="fas fa-map-marker-alt" style="margin-right:8px;color:#2a9d8f;"></i> Raipur, C.G.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 <a href="https://rayservices.netlify.app/" target="_blank" rel="noopener">Ray Services 7746969000</a>. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
